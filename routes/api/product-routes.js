@@ -8,7 +8,6 @@ const {
 
 // The `/api/products` endpoint
 
-//completed
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
@@ -20,7 +19,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-//completed
 router.get('/:id', async (req, res) => {
   try {
     const productID = await Product.findByPk(req.params.id, {
@@ -36,7 +34,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-//completed
 router.post('/', (req, res) => {
   Product.create({
     product_name: req.body.product_name,
@@ -116,14 +113,11 @@ router.put('/:id', (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
 
-//completed
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
   try {
     const productData = await Product.destroy({
       where: {
